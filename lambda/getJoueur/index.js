@@ -31,6 +31,9 @@ exports.handler = async (event, context) => {
 
     const response = {
       statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify(players),
     };
     if (players.length == 0) {
@@ -48,10 +51,11 @@ exports.handler = async (event, context) => {
     return a.data.rank - b.data.rank;
   });
 
-  var toret;
-  // TODO implement
   const response = {
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     body: JSON.stringify(players),
   };
   return response;

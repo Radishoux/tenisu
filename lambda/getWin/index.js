@@ -62,17 +62,17 @@ exports.handler = async (event, context) => {
     countryData.ratio = countryData.win / (countryData.win + countryData.loose);
   }
 
-  // TODO implement
   var response = {
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     body: JSON.stringify(countries),
   };
 
   if (qsp && qsp.tab && qsp.tab == "true") {
     return response;
   }
-
-  // body becomes the one with the biggest ratio
 
   var maxRatio = 0;
   var maxCountry;

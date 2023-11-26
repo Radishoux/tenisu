@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- set google logo as favicon -->
+  <link rel="icon" href="https://www.google.com/favicon.ico">
+
+  <title>Hello, World!</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1>exo1</h1>
+    <p id="exo1"></p>
+    <br>
+  </div>
+
+  <div>
+    <h1>exo2 (id=65)</h1>
+    <p id="exo2"></p>.
+    <br>
+  </div>
+
+  <div>
+    <h1>exo3</h1>
+    <p id="exo3p1"></p>
+    <br>
+    <p id="exo3p2"></p>
+    <br>
+    <p id="exo3p3"></p>
+    <br>
+  </div>
+
+  <div>
+    <h1>bonuses</h1>
+    <p id="bonuses1"></p>
+  </div>
+
+  <script>
+    // JavaScript code
+    console.log("Hello, World!");
+
+    // fetch to https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/player
+
+    fetch("https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/player")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        document.getElementById("exo1").innerHTML = JSON.stringify(data);
+      });
+
+    // fetch to https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/player?id=65
+
+    fetch("https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/player?id=65")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        document.getElementById("exo2").innerHTML = JSON.stringify(data);
+      });
+
+    // fetch to https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/win
+
+    fetch("https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/win")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        document.getElementById("exo3p1").innerHTML = JSON.stringify(data);
+      });
+
+    // fetch to https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/imc
+
+    fetch("https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/imc")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        document.getElementById("exo3p2").innerHTML = JSON.stringify(data);
+      });
+
+    // fetch to https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/median
+
+    fetch("https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/median")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        document.getElementById("exo3p3").innerHTML = JSON.stringify(data);
+      });
+
+
+    // fetch to https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/moyen?tab=true
+
+    fetch("https://2qv0plxjkg.execute-api.eu-west-3.amazonaws.com/prod/moyen?tab=true")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        document.getElementById("bonuses1").innerHTML = JSON.stringify(data);
+      });
+
+  </script>
+</body>
+
+</html>
